@@ -1,4 +1,4 @@
-import 'package:basf_flutter_components/src/spacing/dimens.dart';
+import 'package:basf_flutter_components/src/theme/dimens.dart';
 import 'package:flutter/material.dart';
 
 /// [VerticalSpacer] creates a vertical separation between Widgets

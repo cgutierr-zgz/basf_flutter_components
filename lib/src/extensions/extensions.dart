@@ -86,10 +86,3 @@ extension JoinedWidgets on List<Widget> {
     return spacedWidgets;
   }
 }
-
-void main() {
-  [
-    const Text('BASF'),
-    const Text('MOBILE SOLUTIONS'),
-  ].spaced(); // padding: const EdgeInsets.all(10))
-}
