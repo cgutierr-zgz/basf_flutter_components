@@ -19,5 +19,5 @@ class ExampleApp extends StatelessWidget {
   }
 }
 
-  // DEPRECATED BasfThemes.setAppPrimaryColor(Colors.green);
-  // DEPRECATED BasfThemes.setAppPrimaryInputColor(Colors.green);
+// DEPRECATED BasfThemes.setAppPrimaryColor(Colors.green);
+// DEPRECATED BasfThemes.setAppPrimaryInputColor(Colors.green);
