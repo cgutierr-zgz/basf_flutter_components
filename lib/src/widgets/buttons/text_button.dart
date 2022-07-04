@@ -20,7 +20,6 @@ class BasfTextButton extends BasfButton {
     super.size,
     super.expanded,
     super.alignment,
-    super.isLoading,
   });
 
   /// {@macro basf_text_button}
@@ -39,7 +38,6 @@ class BasfTextButton extends BasfButton {
     super.expanded,
     super.alignment,
     required BuildContext context,
-    super.isLoading,
   }) : super(
           style: style == null
               ? ButtonStyles.transparentTextButtonStyle(
@@ -65,7 +63,6 @@ class BasfTextButton extends BasfButton {
     super.expanded,
     super.alignment,
     required BuildContext context,
-    super.isLoading,
   }) : super(
           style: style == null
               ? ButtonStyles.hintTextButtonStyle(Theme.of(context).primaryColor)
@@ -78,28 +75,10 @@ class BasfTextButton extends BasfButton {
 
   @override
   Widget build(BuildContext context) {
-    final c = child != null ? _button(context) : _button(context);
-
-    final content = isLoading
-        ? Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              c,
-              const SizedBox(
-                height: 20,
-                width: 20,
-                child: CircularProgressIndicator(
-                  color: Colors.white,
-                ),
-              ),
-            ].joinWithSeparator(HorizontalSpacer.medium()),
-          )
-        : c;
-
     if (alignment == null) {
-      return content;
+      return _button(context);
     } else {
-      return Align(alignment: alignment!, child: content);
+      return Align(alignment: alignment!, child: _button(context));
     }
   }
 

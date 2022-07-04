@@ -27,7 +27,6 @@ abstract class BasfButton extends StatelessWidget {
     this.size,
     this.expanded = false,
     this.alignment = Alignment.center,
-    this.isLoading = false,
   });
 
   /// Use this to show text on the button directly.
@@ -62,9 +61,6 @@ abstract class BasfButton extends StatelessWidget {
 
   /// Button alignment
   final AlignmentGeometry? alignment;
-
-  /// Wheter or not something is loading
-  final bool isLoading;
 
   /// Button content
   Widget buttonStandardContent() {

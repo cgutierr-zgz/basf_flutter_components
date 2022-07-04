@@ -1,4 +1,5 @@
 import 'package:basf_flutter_components/basf_flutter_components.dart';
+import 'package:basf_flutter_components_example/screens/forms/options.dart';
 import 'package:basf_flutter_components_example/screens/forms/text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -20,13 +21,25 @@ class FormsOverviewScreen extends StatelessWidget {
               text: 'BASF Text Fields',
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => const TextFieldScreen(),
-                    ),);
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const TextFieldScreen(),
+                  ),
+                );
               },
             ),
-          ],
+            BasfTextButton.contained(
+              text: 'BASF Options',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const OptionsScreen(),
+                  ),
+                );
+              },
+            ),
+          ].joinWithSeparator(VerticalSpacer.medium20()),
         ),
       ),
     );

@@ -31,7 +31,6 @@ class ButtonsOverviewScreen extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 20),
             BasfOutlinedButton(
               text: 'Outlined Buttons',
               onPressed: () {
@@ -43,7 +42,6 @@ class ButtonsOverviewScreen extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 20),
             BasfTextButton.transparent(
               context: context,
               text: 'Transparent Buttons',
@@ -56,11 +54,10 @@ class ButtonsOverviewScreen extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 20),
             SliderButton(
               onConfirmation: () {},
             ),
-          ],
+          ].joinWithSeparator(VerticalSpacer.medium20()),
         ),
       ),
     );

@@ -25,60 +25,72 @@ class _OverviewScreenState extends State<OverviewScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             BasfTextButton.contained(
-              text: 'BASF Fonts',
+              text: 'BASF Buttons',
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => const FontsScreen(),
-                    ),);
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const ButtonsOverviewScreen(),
+                  ),
+                );
               },
             ),
-            const SizedBox(height: 15),
             BasfTextButton.contained(
               text: 'BASF Colors',
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => const ColorsOverviewScreen(),
-                    ),);
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const ColorsOverviewScreen(),
+                  ),
+                );
               },
             ),
-            const SizedBox(height: 15),
-            BasfTextButton.contained(
-              text: 'BASF Buttons',
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => const ButtonsOverviewScreen(),
-                    ),);
-              },
-            ),
-            const SizedBox(height: 15),
-            BasfTextButton.contained(
-              text: 'BASF Forms',
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => const FormsOverviewScreen(),
-                    ),);
-              },
-            ),
-            const SizedBox(height: 15),
             BasfTextButton.contained(
               text: 'BASF Dialogs',
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => const DialogOverviewScreen(),
-                    ),);
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const DialogOverviewScreen(),
+                  ),
+                );
               },
             ),
-          ],
+            BasfTextButton.contained(
+              text: 'BASF Fonts',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const FontsScreen(),
+                  ),
+                );
+              },
+            ),
+            BasfTextButton.contained(
+              text: 'BASF Forms',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const FormsOverviewScreen(),
+                  ),
+                );
+              },
+            ),
+            BasfTextButton.contained(
+              text: 'BASF Icons',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const IconsOverviewScreen(),
+                  ),
+                );
+              },
+            ),
+          ].joinWithSeparator(VerticalSpacer.medium20()),
         ),
       ),
     );

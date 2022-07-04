@@ -35,7 +35,6 @@ class DialogOverviewScreen extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 15),
             BasfTextButton.contained(
               text: 'Only Confirm',
               onPressed: () {
@@ -51,7 +50,6 @@ class DialogOverviewScreen extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 15),
             BasfTextButton.contained(
               text: 'Changed Text',
               onPressed: () {
@@ -68,7 +66,6 @@ class DialogOverviewScreen extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 15),
             BasfTextButton.contained(
               text: 'Select functions',
               onPressed: () {
@@ -91,7 +88,7 @@ class DialogOverviewScreen extends StatelessWidget {
                 );
               },
             ),
-          ],
+          ].joinWithSeparator(VerticalSpacer.medium20()),
         ),
       ),
     );
