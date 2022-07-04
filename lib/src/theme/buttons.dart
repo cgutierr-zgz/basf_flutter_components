@@ -8,24 +8,25 @@ const Size _minimumSize = Size(0, _buttonHeight);
 /// BASF button styles
 abstract class ButtonStyles {
   /// Contained text button style
-  static ButtonStyle get containedTextButtonStyle =>
-      _TextButtonStyles().containedTextButtonStyle();
+  static ButtonStyle containedTextButtonStyle(Color primaryColor) =>
+      _TextButtonStyles().containedTextButtonStyle(primaryColor);
 
   /// Transparent text button style
-  static ButtonStyle get transparentTextButtonStyle =>
-      _TextButtonStyles().transparentTextButtonStyle();
+  static ButtonStyle transparentTextButtonStyle(Color primaryColor) =>
+      _TextButtonStyles().transparentTextButtonStyle(primaryColor);
 
   /// Hint text button style
-  static ButtonStyle get hintTextButtonStyle =>
-      _TextButtonStyles().hintTextButtonStyle();
+  static ButtonStyle hintTextButtonStyle(Color primaryColor) =>
+      _TextButtonStyles().hintTextButtonStyle(primaryColor);
 
-  /// Primary outlined  text button style
-  static ButtonStyle get primaryOutlinedButtonStyle =>
-      _OutlinedButtonStyles().primaryOutlinedButtonStyle();
+  /// Primary outlined  text button style∫
+  static ButtonStyle primaryOutlinedButtonStyle(Color primaryColor) =>
+      _OutlinedButtonStyles().primaryOutlinedButtonStyle(primaryColor);
 }
 
 class _TextButtonStyles extends ButtonStyles {
-  ButtonStyle containedTextButtonStyle() => TextButton.styleFrom(
+  ButtonStyle containedTextButtonStyle(Color primaryColor) =>
+      TextButton.styleFrom(
         primary: Colors.white,
         padding: _padding,
         minimumSize: _minimumSize,
@@ -38,17 +39,17 @@ class _TextButtonStyles extends ButtonStyles {
           if (states.contains(MaterialState.disabled)) {
             return BasfColors.grey;
           } else {
-            return BasfThemes.primaryColor;
+            return primaryColor;
           }
         }),
         foregroundColor: MaterialStateProperty.all(BasfColors.white),
       );
 
-  ButtonStyle transparentTextButtonStyle() {
+  ButtonStyle transparentTextButtonStyle(Color primaryColor) {
     return TextButton.styleFrom(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       backgroundColor: BasfColors.transparent,
-      primary: BasfThemes.primaryColor,
+      primary: primaryColor,
       minimumSize: Size.zero,
       side: BorderSide.none,
       shape: RoundedRectangleBorder(
@@ -60,13 +61,13 @@ class _TextButtonStyles extends ButtonStyles {
       foregroundColor: MaterialStateProperty.resolveWith((states) {
         return states.contains(MaterialState.disabled)
             ? BasfColors.grey
-            : BasfThemes.primaryColor;
+            : primaryColor;
       }),
     );
   }
 
-  ButtonStyle hintTextButtonStyle() {
-    return transparentTextButtonStyle().copyWith(
+  ButtonStyle hintTextButtonStyle(Color primaryColor) {
+    return transparentTextButtonStyle(primaryColor).copyWith(
       textStyle: MaterialStateProperty.all(BasfThemes.mainTextTheme.subtitle2),
       padding: MaterialStateProperty.all(const EdgeInsets.all(5)),
       foregroundColor: MaterialStateProperty.all(BasfColors.grey),
@@ -76,7 +77,8 @@ class _TextButtonStyles extends ButtonStyles {
 }
 
 class _OutlinedButtonStyles extends ButtonStyles {
-  ButtonStyle primaryOutlinedButtonStyle() => OutlinedButton.styleFrom(
+  ButtonStyle primaryOutlinedButtonStyle(Color primaryColor) =>
+      OutlinedButton.styleFrom(
         padding: _padding,
         minimumSize: _minimumSize,
         shape: RoundedRectangleBorder(
@@ -87,7 +89,7 @@ class _OutlinedButtonStyles extends ButtonStyles {
           if (states.contains(MaterialState.disabled)) {
             return null;
           } else {
-            return BorderSide(color: BasfThemes.primaryColor);
+            return BorderSide(color: primaryColor);
           }
         }),
         backgroundColor: MaterialStateProperty.resolveWith((states) {
@@ -101,7 +103,7 @@ class _OutlinedButtonStyles extends ButtonStyles {
           if (states.contains(MaterialState.disabled)) {
             return BasfColors.white;
           } else {
-            return BasfThemes.primaryColor;
+            return primaryColor;
           }
         }),
       );

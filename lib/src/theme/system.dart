@@ -1,4 +1,3 @@
-import 'package:basf_flutter_components/basf_flutter_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,6 +6,7 @@ class SystemThemes {
   /// Dark Overlay sytle
   static SystemUiOverlayStyle defaultSystemOverlayStyleDark({
     bool whiteNavigationBar = true,
+    required ThemeData theme,
   }) {
     return const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -17,7 +17,7 @@ class SystemThemes {
       systemNavigationBarIconBrightness: Brightness.dark,
     ).copyWith(
       systemNavigationBarColor:
-          whiteNavigationBar ? Colors.white : BasfThemes.primaryColor,
+          whiteNavigationBar ? Colors.white : theme.primaryColor,
       systemNavigationBarDividerColor: Colors.transparent,
       systemNavigationBarIconBrightness:
           whiteNavigationBar ? Brightness.dark : Brightness.light,
@@ -27,6 +27,7 @@ class SystemThemes {
   /// Light Overlay sytle
   static SystemUiOverlayStyle defaultSystemOverlayStyleLight({
     bool whiteNavigationBar = false,
+    required ThemeData theme,
   }) =>
       const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -34,7 +35,7 @@ class SystemThemes {
         statusBarBrightness: Brightness.dark, // For iOS (light icons)
       ).copyWith(
         systemNavigationBarColor:
-            whiteNavigationBar ? Colors.white : BasfThemes.primaryColor,
+            whiteNavigationBar ? Colors.white : theme.primaryColor,
         systemNavigationBarDividerColor: Colors.transparent,
         systemNavigationBarIconBrightness:
             whiteNavigationBar ? Brightness.dark : Brightness.light,

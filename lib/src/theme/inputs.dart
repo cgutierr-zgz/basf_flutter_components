@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 /// A collection of Input values being used in the BASF themes
 abstract class BasfInputThemes {
   const BasfInputThemes._();
+
   /// Focused border color
   static MaterialColor focusedBorderColor = BasfColors.grey;
 
@@ -25,24 +26,22 @@ abstract class BasfInputThemes {
   }
 
   /// Error input theme
-  static ThemeData get errorInputTheme => BasfThemes.lightMainTheme.copyWith(
+  static ThemeData errorInputTheme(ThemeData theme) => theme.copyWith(
         textSelectionTheme: _errorTextSelectionTheme,
         iconTheme: const IconThemeData(color: BasfColors.red),
         hintColor: BasfColors.red.shade400,
-        inputDecorationTheme:
-            BasfThemes.lightMainTheme.inputDecorationTheme.copyWith(
-          hintStyle: BasfThemes.lightMainTheme.inputDecorationTheme.hintStyle
+        inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+          hintStyle: theme.inputDecorationTheme.hintStyle
               ?.copyWith(color: BasfColors.red.shade400),
         ),
       );
 
   /// Disabled input theme
-  static ThemeData get disabledInputTheme => BasfThemes.lightMainTheme.copyWith(
+  static ThemeData disabledInputTheme(ThemeData theme) => theme.copyWith(
         iconTheme: IconThemeData(color: BasfColors.grey.shade400),
         hintColor: BasfColors.grey.shade400,
-        inputDecorationTheme:
-            BasfThemes.lightMainTheme.inputDecorationTheme.copyWith(
-          hintStyle: BasfThemes.lightMainTheme.inputDecorationTheme.hintStyle
+        inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+          hintStyle: theme.inputDecorationTheme.hintStyle
               ?.copyWith(color: BasfColors.grey.shade400),
           fillColor: BasfColors.grey.shade100,
           filled: true,
