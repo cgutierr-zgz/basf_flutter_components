@@ -19,7 +19,7 @@ class _OptionsScreenState extends State<OptionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('BASF Text Fields')),
+      appBar: AppBar(title: const Text('BASF Options')),
       body: SafeArea(
         child: ListView(
           physics: const ClampingScrollPhysics(),

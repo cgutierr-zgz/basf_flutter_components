@@ -1,4 +1,5 @@
 import 'package:basf_flutter_components/basf_flutter_components.dart';
+import 'package:basf_flutter_components_example/screens/alerts/alerts.dart';
 import 'package:basf_flutter_components_example/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,17 @@ class _OverviewScreenState extends State<OverviewScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            BasfTextButton.contained(
+              text: 'BASF Alerts',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const AlertsOverviewScreen(),
+                  ),
+                );
+              },
+            ),
             BasfTextButton.contained(
               text: 'BASF Buttons',
               onPressed: () {
