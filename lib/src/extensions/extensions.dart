@@ -1,5 +1,7 @@
+import 'dart:developer' as devtools;
+
 import 'package:basf_flutter_components/basf_flutter_components.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 /// A collection of usefull extensions on [String]
 extension StringCasingExtension on String {
@@ -34,6 +36,7 @@ extension JoinedWidgets on List<Widget> {
   /// Adds a specific type of [Widget] in between a list of Widgets
   /// This can be usefull to add some height in between Widgets
   /// without the need of writing it multiple times
+  ///
   /// Example:
   /// ```dart
   /// [
@@ -54,6 +57,7 @@ extension JoinedWidgets on List<Widget> {
   /// Adds the same ammount of padding to a list of Widgets
   /// This can be usefull if you need to have some of the widgets of a list
   /// spaced, and some don't
+  ///
   /// Example:
   /// ```dart
   /// [
@@ -84,5 +88,70 @@ extension JoinedWidgets on List<Widget> {
       }
     }
     return spacedWidgets;
+  }
+}
+
+/// {@template log_extension}
+/// Emit a log event of the current object
+/// {@endtemplate}
+extension Log on Object {
+  /// {@macro log_extension}
+  void log() => devtools.log(toString());
+}
+
+/// {@template map_extension}
+/// Allows us to find an entry
+/// {@endtemplate}
+extension DetailedWhere<K, V> on Map<K, V> {
+  /// {@macro map_extension}
+  /// based on key and value
+  ///
+  /// Example:
+  /// ```dart
+  /// people.where((key, value) => key.length > 4 && value > 20);
+  /// // {Peter: 22}
+  ///
+  /// const Map<String, int> people = {'John': 20, 'Mary': 21, 'Peter':20};
+  /// ```
+  Map<K, V> where(bool Function(K key, V value) f) => Map<K, V>.fromEntries(
+        entries.where((entry) => f(entry.key, entry.value)),
+      );
+
+  /// {@macro map_extension}
+  /// based on key
+  ///
+  /// Example:
+  /// ```dart
+  /// people.whereKey((key) => key.length < 5);
+  /// // {John: 20, Mary: 21}
+  ///
+  /// const Map<String, int> people = {'John': 20, 'Mary': 21, 'Peter':20};
+  /// ```
+  Map<K, V> whereKey(bool Function(K key) f) =>
+      {...where((key, value) => f(key))};
+
+  /// {@macro map_extension}
+  /// based on  value
+  ///
+  /// Example:
+  /// ```dart
+  /// people.whereValue((value) => value.isEven);
+  /// // {John: 20, Peter: 22}
+  ///
+  /// const Map<String, int> people = {'John': 20, 'Mary': 21, 'Peter':20};
+  /// ```
+  Map<K, V> whereValue(bool Function(V value) f) =>
+      {...where((key, value) => f(value))};
+}
+
+/// {@template show_app_snackbar}
+/// Shows an [AppSnackBar]
+/// {@endtemplate}
+extension SnackbarActions on AppSnackBar {
+  /// {@macro show_app_snackbar}
+  void show(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(backgroundColor: backgroundColor, content: this),
+    );
   }
 }
