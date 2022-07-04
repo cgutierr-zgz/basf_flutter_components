@@ -19,6 +19,7 @@ class BasfOutlinedButton extends BasfButton {
     super.size,
     super.expanded,
     super.alignment,
+    super.isLoading,
   });
 
   @override
@@ -34,6 +35,24 @@ class BasfOutlinedButton extends BasfButton {
   }
 
   Widget _button(BuildContext context) {
+    final c = child != null ? buttonChildContent() : buttonStandardContent();
+
+    final content = isLoading
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              c,
+              const SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                ),
+              ),
+            ].joinWithSeparator(HorizontalSpacer.medium()),
+          )
+        : c;
+
     return OutlinedButton(
       onPressed: onPressed,
       onLongPress: onLongPress,
@@ -41,7 +60,7 @@ class BasfOutlinedButton extends BasfButton {
         context: context,
         buttonType: ButtonType.outlined,
       ),
-      child: child != null ? buttonChildContent() : buttonStandardContent(),
+      child: content,
     );
   }
 }
