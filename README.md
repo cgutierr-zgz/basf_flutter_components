@@ -46,7 +46,19 @@ Use your IDE IntelliSense to import any of the [Components](#components) built i
 ## BASF Flutter Components
 
 - ### Theme
-// ! TODO
+
+#### Themes
+```dart
+theme: BasfThemes.lightMainTheme(BasfThemeType.darkBlue),
+/// etc...
+```
+![themes](./assets/screenshots/themes.gif)
+#### Colors
+```dart
+BasfColors.red,
+/// etc...
+```
+![colors](./assets/screenshots/colors.png)
 
 - ### Widgets
 #### AppSnackBar
@@ -57,7 +69,7 @@ AppSnackBar.error(message: 'Button pressed').show(context);
 ```
 
 ![snackbar](./assets/screenshots/info.png)
-![snackbar](./assets/screenshots/error.png)
+![snackbar_error](./assets/screenshots/error.png)
 
 #### BasfTextButton
 ```dart
