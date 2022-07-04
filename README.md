@@ -49,10 +49,82 @@ Use your IDE IntelliSense to import any of the [Components](#components) built i
 // ! TODO
 
 - ### Widgets
-// ! TODO
+#### AppSnackBar
+```dart
+AppSnackBar.info(message: 'Button pressed').show(context);
+// or
+AppSnackBar.error(message: 'Button pressed').show(context);
+```
+
+![snackbar](./assets/screenshots/info.png)
+![snackbar](./assets/screenshots/error.png)
+
+#### BasfTextButton
+```dart
+BasfTextButton.contained(
+        text: 'Styled Button',
+        onPressed: () => _onPressed(context),
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+          backgroundColor: BasfColors.red,
+        ),
+      ),
+// or
+BasfTextButton.transparent(
+      context: context,
+      text: 'Expanded Button',
+      expanded: true,
+      onPressed: () => _onPressed(context),
+),
+// or
+BasfTextButton.hint(
+      context: context,
+      text: 'Hint Button',
+      onPressed: () => _onPressed(context),
+),
+```
+
+![text_buttons](./assets/screenshots/text_buttons.png)
+
+#### OutlinedButton
+```dart
+BasfOutlinedButton(
+              text: 'Outlined Buttons',
+              onPressed: () { /* --- */ },
+            );
+```
+
+![outlined_buttons](./assets/screenshots/outlined_buttons.png)
+
+#### TransparentButton
+```dart
+BasfTextButton.transparent(
+    context: context,
+    text: 'Only Text',
+    onPressed: () => _onPressed(context),
+),
+```
+
+![transaparent_buttons](./assets/screenshots/transaparent_buttons.png)
+
+#### SliderButton
+```dart
+SliderButton(
+    text: 'Basf Slider button',
+    onConfirmation: () {},
+),
+```
+![slider_button](./assets/screenshots/slider_button.png)
+
 
 - ### Animations
-// ! TODO
+	- #### Fade
+```dart
+Fade(
+    visible: value, // Update this value
+    child: Text('Sup'),
+);
+```
 
 
 You can find how to use all of this components at the example project

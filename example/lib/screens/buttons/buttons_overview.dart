@@ -55,6 +55,7 @@ class ButtonsOverviewScreen extends StatelessWidget {
               },
             ),
             SliderButton(
+              text: 'Basf Slider button',
               onConfirmation: () {},
             ),
           ].joinWithSeparator(VerticalSpacer.medium20()),
