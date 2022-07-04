@@ -60,6 +60,8 @@ BasfColors.red,
 ```
 ![colors](./assets/screenshots/colors.png)
 
+---
+
 - ### Widgets
 #### AppSnackBar
 ```dart
@@ -128,6 +130,7 @@ SliderButton(
 ```
 ![slider_button](./assets/screenshots/slider_button.png)
 
+---
 
 - ### Animations
 	- #### Fade
