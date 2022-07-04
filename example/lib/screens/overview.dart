@@ -1,6 +1,7 @@
 import 'package:basf_flutter_components/basf_flutter_components.dart';
 import 'package:basf_flutter_components_example/screens/alerts/alerts.dart';
 import 'package:basf_flutter_components_example/screens/screens.dart';
+import 'package:basf_flutter_components_example/screens/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 class OverviewScreen extends StatefulWidget {
@@ -98,6 +99,17 @@ class _OverviewScreenState extends State<OverviewScreen> {
                   context,
                   MaterialPageRoute<void>(
                     builder: (context) => const IconsOverviewScreen(),
+                  ),
+                );
+              },
+            ),
+            BasfTextButton.contained(
+              text: 'BASF Themes',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const ThemesOverviewScreen(),
                   ),
                 );
               },
