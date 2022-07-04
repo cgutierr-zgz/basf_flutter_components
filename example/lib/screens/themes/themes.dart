@@ -9,7 +9,13 @@ class ThemesOverviewScreen extends StatefulWidget {
 }
 
 class _ThemesOverviewScreenState extends State<ThemesOverviewScreen> {
-  BasfThemeType theme = BasfThemeType.darkGreen;
+  BasfThemeType theme = BasfThemeType.darkBlue;
+  bool state = true;
+  List<String> values = [
+    'Option1',
+    'Option2',
+  ];
+  String selectedValue = 'Option1';
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,7 @@ class _ThemesOverviewScreenState extends State<ThemesOverviewScreen> {
       child: Scaffold(
         appBar: AppBar(title: const Text('BASF Themes')),
         body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.all(8),
           child: Column(
             children: [
               Wrap(
@@ -27,27 +33,25 @@ class _ThemesOverviewScreenState extends State<ThemesOverviewScreen> {
                 runSpacing: 20,
                 children: getThemeButtons(),
               ),
-              const Divider(),
-              BasfTextButton.contained(
-                text: 'Theme button',
-                onPressed: () =>
-                    AppSnackBar.info(message: 'Button pressed').show(context),
+              const HorizontalSpacerWithText(
+                text: 'Example Theme Output',
+                color: Colors.grey,
               ),
-              BasfTextButton.hint(
-                context: context,
-                text: 'Theme button',
-                onPressed: () =>
-                    AppSnackBar.info(message: 'Button pressed').show(context),
+              BasfTextButton.contained(text: 'Theme button', onPressed: () {}),
+              BasfOutlinedButton(text: 'Outlined button', onPressed: () {}),
+              BasfCheckbox(
+                value: state,
+                onChanged: (_) => setState(() => state = !state),
+                text: 'Checkbox',
               ),
-              BasfTextButton.transparent(
-                context: context,
-                text: 'Theme button',
-                onPressed: () =>
-                    AppSnackBar.info(message: 'Button pressed').show(context),
-              ),
-              BasfOutlinedButton(
-                text: 'Outlined button',
-                onPressed: () {},
+              RadioOptions(
+                title: 'BASF Option',
+                selectedValue: selectedValue,
+                labelGenerator: (o) => '$o',
+                values: values,
+                onSelected: (value) {
+                  setState(() => selectedValue = value.toString());
+                },
               ),
             ].joinWithSeparator(VerticalSpacer.medium20()),
           ),
