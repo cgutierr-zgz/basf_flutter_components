@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 enum ButtonType { outlined, elevated, text }
 
 class FontsScreen extends StatelessWidget {
-  const FontsScreen({Key? key}) : super(key: key);
+  const FontsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class FontsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         children: allStylesTexts(context),
       );
-    });
+    },);
   }
 
   Widget button(ButtonType buttonType) {
@@ -45,7 +45,7 @@ class FontsScreen extends StatelessWidget {
             child: const Text('Text button'),
           );
       }
-    });
+    },);
   }
 
   Widget text({
@@ -60,41 +60,41 @@ class FontsScreen extends StatelessWidget {
     return [
       text(
           textStyle: Theme.of(context).textTheme.headline1!,
-          styleType: 'headline1'),
+          styleType: 'headline1',),
       text(
           textStyle: Theme.of(context).textTheme.headline2!,
-          styleType: 'headline2'),
+          styleType: 'headline2',),
       text(
           textStyle: Theme.of(context).textTheme.headline3!,
-          styleType: 'headline3'),
+          styleType: 'headline3',),
       text(
           textStyle: Theme.of(context).textTheme.headline4!,
-          styleType: 'headline4'),
+          styleType: 'headline4',),
       text(
           textStyle: Theme.of(context).textTheme.headline5!,
-          styleType: 'headline5'),
+          styleType: 'headline5',),
       text(
           textStyle: Theme.of(context).textTheme.headline6!,
-          styleType: 'headline6'),
+          styleType: 'headline6',),
       text(
           textStyle: Theme.of(context).textTheme.bodyText1!,
-          styleType: 'bodyText1'),
+          styleType: 'bodyText1',),
       text(
           textStyle: Theme.of(context).textTheme.bodyText2!,
-          styleType: 'bodyText2'),
+          styleType: 'bodyText2',),
       text(
           textStyle: Theme.of(context).textTheme.subtitle1!,
-          styleType: 'subtitle1'),
+          styleType: 'subtitle1',),
       text(
           textStyle: Theme.of(context).textTheme.subtitle2!,
-          styleType: 'subtitle2'),
+          styleType: 'subtitle2',),
       text(
           textStyle: Theme.of(context).textTheme.caption!,
-          styleType: 'caption'),
+          styleType: 'caption',),
       text(textStyle: Theme.of(context).textTheme.button!, styleType: 'button'),
       text(
           textStyle: Theme.of(context).textTheme.overline!,
-          styleType: 'overline'),
+          styleType: 'overline',),
     ];
   }
 }

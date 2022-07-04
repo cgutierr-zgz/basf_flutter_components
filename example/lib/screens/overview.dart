@@ -1,10 +1,9 @@
 import 'package:basf_flutter_components/basf_flutter_components.dart';
+import 'package:basf_flutter_components_example/screens/screens.dart';
 import 'package:flutter/material.dart';
 
-import 'screens.dart';
-
 class OverviewScreen extends StatefulWidget {
-  const OverviewScreen({Key? key}) : super(key: key);
+  const OverviewScreen({super.key});
 
   @override
   State<OverviewScreen> createState() => _OverviewScreenState();
@@ -30,9 +29,9 @@ class _OverviewScreenState extends State<OverviewScreen> {
               onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (context) => const FontsScreen(),
-                    ));
+                    ),);
               },
             ),
             const SizedBox(height: 15),
@@ -41,9 +40,9 @@ class _OverviewScreenState extends State<OverviewScreen> {
               onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (context) => const ColorsOverviewScreen(),
-                    ));
+                    ),);
               },
             ),
             const SizedBox(height: 15),
@@ -52,9 +51,9 @@ class _OverviewScreenState extends State<OverviewScreen> {
               onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (context) => const ButtonsOverviewScreen(),
-                    ));
+                    ),);
               },
             ),
             const SizedBox(height: 15),
@@ -63,9 +62,9 @@ class _OverviewScreenState extends State<OverviewScreen> {
               onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (context) => const FormsOverviewScreen(),
-                    ));
+                    ),);
               },
             ),
             const SizedBox(height: 15),
@@ -74,9 +73,9 @@ class _OverviewScreenState extends State<OverviewScreen> {
               onPressed: () {
                 Navigator.push(
                     context,
-                    MaterialPageRoute(
+                    MaterialPageRoute<void>(
                       builder: (context) => const DialogOverviewScreen(),
-                    ));
+                    ),);
               },
             ),
           ],
