@@ -2,12 +2,6 @@ import 'package:basf_flutter_components/basf_flutter_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// {@template example}
-/// My text
-/// {@endtemplate}
-
-/// {@macro example}
-
 /// All BASF Theme types, each one holding the primary color
 /// that will be used in the theme
 enum BasfThemeType {
@@ -36,6 +30,7 @@ enum BasfThemeType {
   final Color primaryColor;
 }
 
+/// Core of BASF Themes
 class BasfThemes {
   /// Default BASF border Radius
   static BorderRadius defaultBorderRadius = BorderRadius.zero;
