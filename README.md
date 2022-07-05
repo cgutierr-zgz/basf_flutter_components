@@ -53,12 +53,31 @@ theme: BasfThemes.lightMainTheme(BasfThemeType.darkBlue),
 /// etc...
 ```
 ![themes](./assets/screenshots/themes.gif)
+
 #### Colors
 ```dart
 BasfColors.red,
 /// etc...
 ```
 ![colors](./assets/screenshots/colors.png)
+
+#### Fonts
+```dart
+Theme.of(context).textTheme.headline1!,
+                         // headline2
+                         // headline3
+                         // headline4
+                         // headline5
+                         // headline6
+                         // bodyText1
+                         // bodyText2
+                         // subtitle1
+                         // subtitle2
+                         // caption
+                         // button
+                         // overline
+```
+![fonts](./assets/screenshots/fonts.png)
 
 ---
 
@@ -130,6 +149,81 @@ SliderButton(
 ```
 ![slider_button](./assets/screenshots/slider_button.png)
 
+#### Dialogs
+```dart
+BasfTextButton.contained(
+    text: 'Text',
+    onPressed: () {
+    showDialog<void>(
+            context: context,
+            builder: (context) {
+    	    return const BasfAlertDialog(
+        	title: 'Title',
+            	description: 'Body Text',
+            	confirmText: 'Confirm Text',
+            	dismissText: 'Dismiss Text',
+                //onlyConfirm: true, // Optional to hide red text
+            );
+        },
+    );
+    },
+);
+```
+![alert_dialog](./assets/screenshots/dialog.png)
+
+#### Text fields
+```dart
+BasfTextField(
+    decoration: const InputDecoration(
+        hintText: 'Enabled',
+    ),
+    controller: _enabledController,
+),
+```
+![text_fields](./assets/screenshots/text_fields.png)
+
+
+#### Dropdown
+```dart
+BasfDropDownInput(
+    controller: TextEditingController(),
+    values: const ['Option1', 'Option2', 'Option3'],
+),
+```
+![drop_down](./assets/screenshots/drop_down.gif)
+
+#### Radio
+```dart
+RadioOptions(
+    title: 'BASF Radio',
+    selectedValue: selectedValue,
+    labelGenerator: (o) => '$o',
+    values: values,
+    onSelected: (value) {
+      setState(() => selectedValue = value.toString());
+    },
+),
+```
+![radio](./assets/screenshots/radio.gif)
+
+#### CheckBox
+```dart
+BasfCheckbox(
+	value: selected, // Update this
+	onChanged: change,
+    // reverse: true, Optional
+),
+```
+![checkbox](./assets/screenshots/checkbox.gif)
+
+#### Icons
+```dart
+Icon(BasfIcons.add),
+// or
+Icon(BasfIconsData(code /* e842 */)),
+```
+![icons](./assets/screenshots/icons.gif)
+
 ---
 
 - ### Animations
@@ -140,6 +234,8 @@ Fade(
     child: Text('Sup'),
 );
 ```
+![fade](./assets/screenshots/fade.gif)
+
 
 
 You can find how to use all of this components at the example project

@@ -25,8 +25,12 @@ class _OptionsScreenState extends State<OptionsScreen> {
           physics: const ClampingScrollPhysics(),
           padding: const EdgeInsets.all(8),
           children: [
+            BasfDropDownInput(
+              controller: TextEditingController(),
+              values: const ['Option1', 'Option2', 'Option3'],
+            ),
             RadioOptions(
-              title: 'BASF Option',
+              title: 'BASF Radio',
               selectedValue: selectedValue,
               labelGenerator: (o) => '$o',
               values: values,

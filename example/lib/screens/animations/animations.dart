@@ -24,7 +24,26 @@ class _AnimationsOverviewScreenState extends State<AnimationsOverviewScreen> {
               text: 'Click to hide',
               onPressed: () => setState(() => visible = !visible),
             ),
-            ...widgetsExample()
+            Fade(
+              visible: visible,
+              child: Center(
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  color: BasfColors.red,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'SUP!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+           // const Divider(),
+          //  ...widgetsExample()
           ].joinWithSeparator(VerticalSpacer.medium20()),
         ),
       ),
