@@ -13,7 +13,6 @@ class _AnimationsOverviewScreenState extends State<AnimationsOverviewScreen> {
   bool visible = true;
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(title: const Text('BASF Alerts')),
       body: Padding(
@@ -42,8 +41,8 @@ class _AnimationsOverviewScreenState extends State<AnimationsOverviewScreen> {
                 ),
               ),
             ),
-            // const Divider(),
-            //  ...widgetsExample()
+            const Divider(),
+            ...widgetsExample()
           ].joinWithSeparator(VerticalSpacer.medium20()),
         ),
       ),
