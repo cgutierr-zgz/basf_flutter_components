@@ -42,8 +42,8 @@ class _AnimationsOverviewScreenState extends State<AnimationsOverviewScreen> {
                 ),
               ),
             ),
-           // const Divider(),
-          //  ...widgetsExample()
+            // const Divider(),
+            //  ...widgetsExample()
           ].joinWithSeparator(VerticalSpacer.medium20()),
         ),
       ),

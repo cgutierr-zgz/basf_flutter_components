@@ -17,39 +17,46 @@ class ColorsOverviewScreen extends StatelessWidget {
             Wrap(
               spacing: 5,
               children: BasfColors.swatchColors
-                  .map((color) => MaterialButton(
-                        color: color,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                  MaterialPageRoute<void>(
-                                builder: (context) =>
-                                    ColorSwatchScreen(color: color),
-                              ),);
-                        },
-                      ),)
+                  .map(
+                    (color) => MaterialButton(
+                      color: color,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (context) =>
+                                ColorSwatchScreen(color: color),
+                          ),
+                        );
+                      },
+                    ),
+                  )
                   .toList(),
             ),
             const Divider(),
             const Text('Primaries'),
             Row(
               children: BasfColors.primaries
-                  .map((e) => Container(
-                        height: MediaQuery.of(context).size.width / 6,
-                        width: MediaQuery.of(context).size.width / 6,
-                        color: e,
-                      ),)
+                  .map(
+                    (e) => Container(
+                      height: MediaQuery.of(context).size.width / 6,
+                      width: MediaQuery.of(context).size.width / 6,
+                      color: e,
+                    ),
+                  )
                   .toList(),
             ),
             const Divider(),
             const Text('Pales'),
             Row(
               children: BasfColors.paleColors
-                  .map((e) => Container(
-                        height: MediaQuery.of(context).size.width / 6,
-                        width: MediaQuery.of(context).size.width / 6,
-                        color: e,
-                      ),)
+                  .map(
+                    (e) => Container(
+                      height: MediaQuery.of(context).size.width / 6,
+                      width: MediaQuery.of(context).size.width / 6,
+                      color: e,
+                    ),
+                  )
                   .toList(),
             ),
           ],
@@ -81,13 +88,15 @@ class ColorSwatchScreen extends StatelessWidget {
     final swatches = <Widget>[];
     for (var i = 0; i <= 1000; i += 25) {
       if (color[i] != null) {
-        swatches.add(Expanded(
-          child: Container(
-            color: color[i],
-            alignment: Alignment.center,
-            child: Text('Swatch [$i]'),
+        swatches.add(
+          Expanded(
+            child: Container(
+              color: color[i],
+              alignment: Alignment.center,
+              child: Text('Swatch [$i]'),
+            ),
           ),
-        ),);
+        );
       }
     }
     return swatches;
