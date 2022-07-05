@@ -5,7 +5,7 @@
 - Fix all linting issues and run `flutter format .`
 - Run `dart pub publish --dry-run` to test everything it's ok
 - If a new version is going to be published, add it to both `CHANGELOG.md` and `pubspec.yaml`
-- Test your code: create tests and generate a coverage file with very_good_cli using: `very_good test --coverage` afterwards, u can install `brew install lcov` and run `genhtml coverage/lcov.info -o coverage/html`to generate a `.html` report and see the actual code coverage.
+- Test your code: create tests and generate a coverage file with very_good_cli using: `very_good test --coverage` afterwards, u can install `brew install lcov` and run `genhtml coverage/lcov.info -o coverage/html`to generate a `.html` report and see the actual code coverage. You can also install [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters) in VSCode to see real-time coverage in the IDE.
 - Run `flutter clean` in example folder
 
 Use `dart pub publish` when everything is ready for a new version
