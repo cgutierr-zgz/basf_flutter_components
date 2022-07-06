@@ -12,14 +12,12 @@ void main() {
           text: 'Hi',
           leadingIcon: Icons.abc_outlined,
           trailingIcon: Icons.abc_outlined,
-          alignment: null,
           onPressed: () {},
         ),
         BasfThemes.lightMainTheme(BasfThemeType.darkBlue),
       );
 
-      expect(find.byType(BasfTextButton), findsOneWidget);
-      expect(find.byType(Text), findsOneWidget);
+      expect(find.byType(BasfOutlinedButton), findsOneWidget);
       // expect(find.byIcon(Icons.abc), findsOneWidget);
       // expect(find.byIcon(Icons.abc_rounded), findsOneWidget);
     });

@@ -18,7 +18,6 @@ class BasfOutlinedButton extends BasfButton {
     super.style,
     super.size,
     super.expanded,
-    super.alignment,
   });
   @override
   Widget build(BuildContext context) {

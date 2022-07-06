@@ -19,7 +19,6 @@ class BasfTextButton extends BasfButton {
     super.style,
     super.size,
     super.expanded,
-    super.alignment,
   });
 
   /// {@macro basf_text_button}
@@ -36,7 +35,6 @@ class BasfTextButton extends BasfButton {
     ButtonStyle? style,
     super.size,
     super.expanded,
-    super.alignment,
     required BuildContext context,
   }) : super(
           style: style == null
@@ -75,11 +73,7 @@ class BasfTextButton extends BasfButton {
 
   @override
   Widget build(BuildContext context) {
-    if (alignment == null) {
-      return _button(context);
-    } else {
-      return Align(alignment: alignment!, child: _button(context));
-    }
+    return Align(alignment: alignment!, child: _button(context));
   }
 
   Widget _button(BuildContext context) {
