@@ -11,7 +11,6 @@ export 'src/theme/shadows.dart';
 export 'src/theme/text_styles.dart';
 export 'src/theme/themes.dart';
 export 'src/widgets/animations/fade.dart';
-export 'src/widgets/animations/loading.dart';
 export 'src/widgets/buttons/basf_button.dart';
 export 'src/widgets/buttons/outlined_button.dart';
 export 'src/widgets/buttons/slider_button.dart';
