@@ -3,64 +3,66 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../helpers/pump_app.dart';
-import '../../../helpers/test_helpers.dart';
 
 void main() {
-  group('Checkboxes', () {
+  group('Dropdown', () {
     testWidgets(
-      'Active checkbox',
+      'Dropdown with text controller text',
       (tester) async {
-        FlutterError.onError = ignoreOverflowErrors;
-
-        // ignore: prefer_function_declarations_over_variables
-        final onChanged = (myBool) => true;
-
-        const checkboxText = 'Hi Checkbox!';
+        //    FlutterError.onError = ignoreOverflowErrors;
+        const key = Key('dropdown');
         await tester.pumpApp(
           Scaffold(
             body: Builder(
               builder: (context) {
-                return BasfCheckbox(
-                  text: checkboxText,
-                  onChanged: onChanged,
-                  value: true,
+                return BasfDropDownInput(
+                  key: key,
+                  controller: TextEditingController(text: ' a '),
+                  values: const ['a', 'b', 'c'],
+                  isLoading: true, // Optional
                 );
               },
             ),
           ),
         );
-        expect(find.text(checkboxText), findsOneWidget);
-        expect(find.byType(BasfCheckbox), findsOneWidget);
-
-        await tester.tap(
-          find.byType(MaterialButton),
-          warnIfMissed: false, // Added to remove unnecesary warning
-        );
-        await tester.pump();
+        expect(find.byType(BasfDropDownInput), findsOneWidget);
       },
     );
     testWidgets(
-      'Inactive checkbox',
+      'Dropdown without text in controller',
       (tester) async {
-        FlutterError.onError = ignoreOverflowErrors;
-
-        const checkboxText = 'Hi Checkbox!';
+        //    FlutterError.onError = ignoreOverflowErrors;
+        const key = Key('dropdown');
+        final controller = TextEditingController();
         await tester.pumpApp(
           Scaffold(
             body: Builder(
               builder: (context) {
-                return BasfCheckbox(
-                  text: checkboxText,
-                  // ignore: avoid_returning_null_for_void
-                  onChanged: (_) => null,
-                  value: false,
+                return BasfDropDownInput(
+                  key: key,
+                  controller: controller,
+                  values: const ['a', 'b', 'c'],
                 );
               },
             ),
           ),
         );
-        expect(find.text(checkboxText), findsOneWidget);
-        expect(find.byType(BasfCheckbox), findsOneWidget);
+        expect(find.byType(BasfDropDownInput), findsOneWidget);
+        expect(find.byKey(key), findsOneWidget);
+        await tester.tap(
+          find.byType(PopupMenuButton<String>),
+          warnIfMissed: false, // Added to remove unnecesary warning
+        );
+
+        // Repeatedly calls pump with the given duration until there are no
+        // longer any frames scheduled. This will call pump at least once, even
+        // if no frames are scheduled when the function is called, to flush any
+        // pending microtasks which may themselves schedule a frame.
+        await tester.pumpAndSettle();
+        final childButton = find.text('b');
+        expect(childButton, findsOneWidget);
+        await tester.tap(childButton);
+        await tester.pumpAndSettle();
       },
     );
   });
