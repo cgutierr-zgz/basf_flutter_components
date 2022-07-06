@@ -2,8 +2,8 @@ import 'package:basf_flutter_components/basf_flutter_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../helpers/pump_app.dart';
-import '../../helpers/test_helpers.dart';
+import '../../../helpers/pump_app.dart';
+import '../../../helpers/test_helpers.dart';
 
 void main() {
   group('Checkboxes', () {
