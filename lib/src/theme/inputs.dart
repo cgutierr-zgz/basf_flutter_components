@@ -6,7 +6,7 @@ abstract class BasfInputThemes {
   const BasfInputThemes._();
 
   /// Focused border color
-  static MaterialColor focusedBorderColor = BasfColors.grey;
+  static const MaterialColor focusedBorderColor = BasfColors.grey;
 
   /// Main input theme
   static InputDecorationTheme get mainInputDecorationTheme {
@@ -56,7 +56,7 @@ abstract class BasfInputThemes {
   );
 
   static final OutlineInputBorder _focusedBorder = OutlineInputBorder(
-    borderSide: BorderSide(color: focusedBorderColor),
+    borderSide: const BorderSide(color: focusedBorderColor),
     borderRadius: BasfThemes.defaultBorderRadius,
   );
 

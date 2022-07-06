@@ -16,7 +16,7 @@
 import 'package:flutter/widgets.dart';
 
 /// BASF custom Icons
-class BasfIcons {
+abstract class BasfIcons {
   BasfIcons._();
 
   static const _kFontFam = 'BasfIcons';
