@@ -6,7 +6,7 @@ import '../../../helpers/pump_app.dart';
 import '../../../helpers/test_helpers.dart';
 
 void main() {
-  group('Checkboxes', () {
+  group('Radio Options', () {
     testWidgets(
       'Active checkbox',
       (tester) async {
@@ -15,52 +15,28 @@ void main() {
         // ignore: prefer_function_declarations_over_variables
         final onChanged = (myBool) => true;
 
-        const checkboxText = 'Hi Checkbox!';
+        const optionButtonText = 'Hi OptionButton!';
         await tester.pumpApp(
           Scaffold(
             body: Builder(
               builder: (context) {
-                return BasfCheckbox(
-                  text: checkboxText,
-                  onChanged: onChanged,
-                  value: true,
+                return const OptionButton(
+                  isSelected: true,
+                  labelText: optionButtonText,
+                  description: 'This is my cool description 😎',
                 );
               },
             ),
           ),
         );
-        expect(find.text(checkboxText), findsOneWidget);
-        expect(find.byType(BasfCheckbox), findsOneWidget);
+        expect(find.text(optionButtonText), findsOneWidget);
+        expect(find.byType(OptionButton), findsOneWidget);
 
         await tester.tap(
-          find.byType(MaterialButton),
+          find.byType(OptionButton),
           warnIfMissed: false, // Added to remove unnecesary warning
         );
         await tester.pump();
-      },
-    );
-    testWidgets(
-      'Inactive checkbox',
-      (tester) async {
-        FlutterError.onError = ignoreOverflowErrors;
-
-        const checkboxText = 'Hi Checkbox!';
-        await tester.pumpApp(
-          Scaffold(
-            body: Builder(
-              builder: (context) {
-                return BasfCheckbox(
-                  text: checkboxText,
-                  // ignore: avoid_returning_null_for_void
-                  onChanged: (_) => null,
-                  value: false,
-                );
-              },
-            ),
-          ),
-        );
-        expect(find.text(checkboxText), findsOneWidget);
-        expect(find.byType(BasfCheckbox), findsOneWidget);
       },
     );
   });

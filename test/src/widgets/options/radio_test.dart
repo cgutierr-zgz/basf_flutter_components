@@ -6,7 +6,7 @@ import '../../../helpers/pump_app.dart';
 import '../../../helpers/test_helpers.dart';
 
 void main() {
-  group('Checkboxes', () {
+  group('Radio Options', () {
     testWidgets(
       'Active checkbox',
       (tester) async {
@@ -14,53 +14,66 @@ void main() {
 
         // ignore: prefer_function_declarations_over_variables
         final onChanged = (myBool) => true;
-
-        const checkboxText = 'Hi Checkbox!';
+        const radioText = 'Hi Radio!';
         await tester.pumpApp(
           Scaffold(
             body: Builder(
               builder: (context) {
-                return BasfCheckbox(
-                  text: checkboxText,
-                  onChanged: onChanged,
-                  value: true,
+                return RadioOptions<String>(
+                  labelGenerator: (value) => value,
+                  values: const ['a', 'b', 'c'],
+                  selectedValue: 'a',
+                  title: radioText,
+                  onSelected: onChanged,
+                  identityHelperFunction: (_) => _,
                 );
               },
             ),
           ),
         );
-        expect(find.text(checkboxText), findsOneWidget);
-        expect(find.byType(BasfCheckbox), findsOneWidget);
+        expect(find.text(radioText), findsOneWidget);
+        expect(find.byType(RadioOptions<String>), findsOneWidget);
+        expect(find.byType(OptionButton), findsNWidgets(3));
 
         await tester.tap(
-          find.byType(MaterialButton),
+          find.widgetWithText(OptionButton, 'b'),
           warnIfMissed: false, // Added to remove unnecesary warning
         );
         await tester.pump();
       },
     );
     testWidgets(
-      'Inactive checkbox',
+      'Active checkbox',
       (tester) async {
         FlutterError.onError = ignoreOverflowErrors;
 
-        const checkboxText = 'Hi Checkbox!';
+        // ignore: prefer_function_declarations_over_variables
+        final onChanged = (myBool) => true;
+        const radioText = 'Hi Radio!';
         await tester.pumpApp(
           Scaffold(
             body: Builder(
               builder: (context) {
-                return BasfCheckbox(
-                  text: checkboxText,
-                  // ignore: avoid_returning_null_for_void
-                  onChanged: (_) => null,
-                  value: false,
+                return RadioOptions<String>(
+                  labelGenerator: (value) => value,
+                  values: const ['a', 'b', 'c'],
+                  selectedValue: 'a',
+                  title: radioText,
+                  onSelected: onChanged,
                 );
               },
             ),
           ),
         );
-        expect(find.text(checkboxText), findsOneWidget);
-        expect(find.byType(BasfCheckbox), findsOneWidget);
+        expect(find.text(radioText), findsOneWidget);
+        expect(find.byType(RadioOptions<String>), findsOneWidget);
+        expect(find.byType(OptionButton), findsNWidgets(3));
+
+        await tester.tap(
+          find.widgetWithText(OptionButton, 'b'),
+          warnIfMissed: false, // Added to remove unnecesary warning
+        );
+        await tester.pump();
       },
     );
   });
