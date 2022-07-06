@@ -12,9 +12,6 @@ void main() {
       (tester) async {
         FlutterError.onError = ignoreOverflowErrors;
 
-        // ignore: prefer_function_declarations_over_variables
-        final onChanged = (myBool) => true;
-
         const optionButtonText = 'Hi OptionButton!';
         await tester.pumpApp(
           Scaffold(
