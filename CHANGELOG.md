@@ -1,6 +1,6 @@
 ## 2.0.0+1
 
-- Whole new structure for the library
+- Whole new structure for the library, tests, and documentation
 
 <details >
 <summary>Previous versions</summary>

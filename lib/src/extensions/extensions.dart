@@ -96,7 +96,13 @@ extension JoinedWidgets on List<Widget> {
 /// {@endtemplate}
 extension Log on Object {
   /// {@macro log_extension}
-  void log() => devtools.log(toString());
+  int log() {
+    final str = toString();
+    devtools.log(str);
+
+    // returns the length of the ouput
+    return str.length;
+  }
 }
 
 /// {@template map_extension}

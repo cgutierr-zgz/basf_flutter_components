@@ -47,8 +47,7 @@ void main() {
   });
 
   group('Widgets extensions', () {
-    setUp(WidgetsFlutterBinding.ensureInitialized);
-    const items = [
+    const items = <Widget>[
       Text('a'),
       Text('b'),
       Text('c'),
@@ -84,6 +83,15 @@ void main() {
       );
     });
 
+    test('Adding a Spacer widget', () {
+      final result = [...items, const Spacer()].spaced();
+
+      expect(
+        result.length,
+        equals(items.length + 1),
+      );
+    });
+
     testWidgets(
       'Finds padding when spacing the widgets',
       (tester) async {
@@ -93,12 +101,91 @@ void main() {
         expect(find.byType(Padding), findsNWidgets(items.length));
       },
     );
+    testWidgets(
+      '''Finds paddings when spacing the widgets, doesnt add padding to this to Spacer''',
+      (tester) async {
+        await tester.pumpApp(
+          Column(children: [...items, const Spacer()].spaced()),
+        );
+        expect(find.byType(Padding), findsNWidgets(items.length));
+      },
+    );
   });
 
-// Group Log
+  group('Object extensions', () {
+    test('Log on object', () {
+      final strLen = 'MyOutput'.log();
 
-// Group Map<K,V> ...
+      expect(strLen, 8);
+    });
+  });
 
-// SnackbarAction
+  group('Object Map<K,V>', () {
+    test('where extension', () {
+      final people = <String, int>{
+        'John': 20,
+        'Mary': 21,
+        'Peter': 22,
+      };
 
+      final subMap = people.where((key, value) => key.length > 4 && value > 20);
+
+      expect(subMap, {'Peter': 22});
+    });
+    test('whereKey extension', () {
+      final people = <String, int>{
+        'John': 20,
+        'Mary': 21,
+        'Peter': 22,
+      };
+
+      final subMap = people.whereKey((key) => key.length < 5);
+
+      expect(subMap, {'John': 20, 'Mary': 21});
+    });
+    test('whereValue extension', () {
+      final people = <String, int>{
+        'John': 20,
+        'Mary': 21,
+        'Peter': 22,
+      };
+
+      final subMap = people.whereValue((value) => value.isEven);
+
+      expect(subMap, {'John': 20, 'Peter': 22});
+    });
+  });
+
+  group('Snackbar action show', () {
+    testWidgets(
+      '''Finds paddings when spacing the widgets, doesnt add padding to this to Spacer''',
+      (tester) async {
+        const helloSnackBar = 'Hello SnackBar';
+        const tapTarget = Key('tap-target');
+        await tester.pumpApp(
+          Scaffold(
+            body: Builder(
+              builder: (context) {
+                return GestureDetector(
+                  onTap: () =>
+                      AppSnackBar.info(message: helloSnackBar).show(context),
+                  behavior: HitTestBehavior.opaque, // behaviour during the test
+                  child:
+                      const SizedBox(height: 100, width: 100, key: tapTarget),
+                );
+              },
+            ),
+          ),
+        );
+        expect(find.text(helloSnackBar), findsNothing);
+        await tester.tap(
+          find.byKey(tapTarget),
+          warnIfMissed: false, // Added to remove unnecesary warning
+        );
+        expect(find.text(helloSnackBar), findsNothing);
+        await tester.pump();
+        expect(find.text(helloSnackBar), findsOneWidget);
+      },
+    );
+  });
 }

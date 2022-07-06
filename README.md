@@ -35,7 +35,7 @@ dependencies:
   basf_flutter_components:
 ```
 
-Import the library to your file:
+Import the library into your `.dart` file:
 
 ```dart
 import 'package:basf_flutter_components/basf_flutter_components.dart';
