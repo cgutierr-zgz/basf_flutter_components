@@ -7,7 +7,7 @@ import '../../helpers/pump_app.dart';
 void main() {
   group('Snackbar types', () {
     testWidgets(
-      'Snackbar Info',
+      'Snackbar Info shows up with text',
       (tester) async {
         const helloSnackBar = 'Info SnackBar';
         const tapTarget = Key('tap-target');
@@ -37,7 +37,7 @@ void main() {
       },
     );
     testWidgets(
-      'Snackbar Error',
+      'Snackbar Error shows up with text',
       (tester) async {
         const helloSnackBar = 'Error SnackBar';
         const tapTarget = Key('tap-target');

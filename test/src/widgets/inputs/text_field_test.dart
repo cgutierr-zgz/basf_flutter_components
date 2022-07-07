@@ -28,6 +28,10 @@ void main() {
           warnIfMissed: false, // Added to remove unnecesary warning
         );
         expect(find.byType(TextField), findsOneWidget);
+        await tester.enterText(find.byType(TextField), text);
+        await tester.pumpAndSettle();
+        // finds the text inputed
+        expect(find.text(text), findsOneWidget);
       },
     );
 

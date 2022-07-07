@@ -7,9 +7,10 @@ import '../../../helpers/pump_app.dart';
 void main() {
   group('BASF button', () {
     testWidgets('BasfButtonTest', (WidgetTester tester) async {
+      const text = 'Hi!';
       await tester.pumpApp(
         BasfOutlinedButton(
-          text: 'Hi',
+          text: text,
           leadingIcon: Icons.abc_outlined,
           trailingIcon: Icons.abc_outlined,
           onPressed: () {},
@@ -18,6 +19,7 @@ void main() {
       );
 
       expect(find.byType(BasfOutlinedButton), findsOneWidget);
+      expect(find.text(text), findsOneWidget);
       // expect(find.byIcon(Icons.abc), findsOneWidget);
       // expect(find.byIcon(Icons.abc_rounded), findsOneWidget);
     });
