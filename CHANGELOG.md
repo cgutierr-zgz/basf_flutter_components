@@ -1,9 +1,17 @@
-## 2.0.0+1
+## 2.0.0
 
 - Whole new structure for the library, tests, and documentation
 
 <details >
 <summary>Previous versions</summary>
+
+## 1.1.6
+
+- changed init of Basf Dropdown
+
+## 1.1.5
+
+- added loader for dropdown input
 
 ## 1.1.4+2
 
