@@ -21,43 +21,43 @@ abstract class BasfTextStyles {
   );
 
   /// InputField - Label (Top)
-  static TextStyle inputFieldLabel = _defaultFieldLabel.copyWith(
+  static final TextStyle inputFieldLabel = _defaultFieldLabel.copyWith(
     color: BasfColors.copyTextGrey,
   );
 
   /// InputField - Hint - Default
-  static TextStyle inputFieldHint = _defaultFieldText.copyWith(
+  static final TextStyle inputFieldHint = _defaultFieldText.copyWith(
     color: BasfColors.darkBlue[400],
   );
 
   /// InputField - Hint - Error
-  static TextStyle inputFieldHintError = _defaultFieldText.copyWith(
+  static final TextStyle inputFieldHintError = _defaultFieldText.copyWith(
     color: BasfColors.red[300],
   );
 
   /// InputField - Hint - Focus
-  static TextStyle inputFieldHintFocus = _defaultFieldText.copyWith(
+  static final TextStyle inputFieldHintFocus = _defaultFieldText.copyWith(
     color: BasfColors.darkBlue[500],
   );
 
   /// InputField - Hint - Disabled
   /// InputField - Text Input - Disabled
-  static TextStyle inputFieldDisabled = _defaultFieldText.copyWith(
+  static final TextStyle inputFieldDisabled = _defaultFieldText.copyWith(
     color: BasfColors.darkGrey,
   );
 
   /// InputField - Text Input - Default
-  static TextStyle inputFieldInput = _defaultFieldText.copyWith(
+  static final TextStyle inputFieldInput = _defaultFieldText.copyWith(
     color: BasfColors.copyTextGrey,
   );
 
   /// InputField - Text Input - Error
-  static TextStyle inputFieldError = _defaultFieldText.copyWith(
+  static final TextStyle inputFieldError = _defaultFieldText.copyWith(
     color: BasfColors.red,
   );
 
   /// InputField - Error Label (Bottom)
-  static TextStyle inputFieldErrorLabel = _defaultFieldLabel.copyWith(
+  static final TextStyle inputFieldErrorLabel = _defaultFieldLabel.copyWith(
     color: BasfColors.red,
   );
 

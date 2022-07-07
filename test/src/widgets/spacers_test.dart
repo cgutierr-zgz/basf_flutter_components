@@ -76,5 +76,20 @@ void main() {
         expect(find.text(hText), findsOneWidget);
       },
     );
+    test('Test Paddings', () {
+      final edgeInsets = Paddings.defaultScreenPadding;
+
+      expect(
+        edgeInsets,
+        equals(
+          const EdgeInsets.fromLTRB(
+            Dimens.paddingMediumLarge,
+            Dimens.paddingMediumLarge,
+            Dimens.paddingMediumLarge,
+            Dimens.paddingMediumSmall,
+          ),
+        ),
+      );
+    });
   });
 }
