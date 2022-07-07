@@ -241,4 +241,4 @@ Fade(
 ```
 ![fade](./assets/screenshots/fade.gif)
 
-You can find how to use all of this components at the example project
+You can find how to use all of this components at the [example](https://github.com/cgutierr-zgz/basf_flutter_components/tree/master/example) project.
